@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<% include includes/header.ejs %>
+
+<div id="content">
+
+    <div class="left">
+
+        <% include includes/left.ejs %>
+
+    </div>
+
+    <div class="right">
+
+        <div class="speedbar">
+            <span id="dle-speedbar">
+                <a href="/">Главная</a> &#9658;
+                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <%- movie.title_ru %>
+            </span>
+        </div>
+
+        <div id="dle-content">
+
+            <div class="story full">
+
+                <div class="s_name"><h1><%- movie.title_ru %> русский трейлер <span><%- movie.year %></span></h1></div>
+
+                <% if (movie.rating) { %>
+
+                <div class="rating show_rating_panel">
+                    <span class="text">Общий рейтинг:</span>
+                    <div class="vote-num">
+                        <span><%- movie.rating/10 %></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <% } %>
+
+                <div class="poster_m">
+                    <div class="poster_main">
+                        <div class="poster_main_2"><img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"></div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <a href="<%- movie.url %>/<%- page.urls.movies.online %>" class="w-online" rel="nofollow"></a>
+                    <% if (movie.description) { %>
+                    <div class="full_desc">Описание:</div>
+                    <p><%- movie.description %></p>
+                    <% } %>
+                </div>
+
+                <div class="new_information">
+                    <div class="bleft">
+                        <ul>
+                            <% if (movie.year_url) { %>
+                            <li><span>Год выпуска:</span> <%- movie.year_url %></li>
+                            <% } %>
+                            <% if (movie.countries_url) { %>
+                            <li><span>Страна:</span> <%- movie.countries_url %></li>
+                            <% } %>
+                            <% if (movie.genres) { %>
+                            <li><span>Жанр:</span> <%- movie.genres %></li>
+                            <% } %>
+                            <% if (movie.directors_url) { %>
+                            <li><span>Режиссер:</span> <%- movie.directors_url %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="bright">
+                        <ul>
+                            <% if (movie.kp_vote) { %>
+                            <li><span>Рейтинг КиноПоиск:</span> <%- movie.kp_rating/10 %></li>
+                            <% } %>
+                            <% if (movie.imdb_vote) { %>
+                            <li><span>Рейтинг IMDb:</span> <%- movie.imdb_rating/10 %></li>
+                            <% } %>
+                            <% if (movie.premiere) { %>
+                            <li><span>Премьера:</span> <%- movie.premiere %></li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <% if (movie.actors_url) { %>
+                    <div class="bcenter">
+                        <p class="title">В главных ролях</p>
+                        <%- movie.actors_url %>
+                    </div>
+                    <% } %>
+
+                </div>
+
+            </div>
+
+            <div class="full_h2">
+                <h2><%- movie.title_ru %> смотреть трейлер</h2>
+            </div>
+            <div class="player-block">
+
+                <div class="tabss">
+                    <div class="gall">
+
+                        <ul class="gal_line">
+                            <li class="active">Трейлер</li>
+                            <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
+                        </ul>
+
+                        <div>
+
+                            <div id="yohoho" data-title="<%- movie.title %> (<%- movie.year %>) трейлер"></div>
+                            <script src="https://yohoho.xyz/yo.js"></script>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shares">
+                    <div class="social-likes">
+                        <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Поделиться</div>
+                        <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Нравится</div>
+                        <div class="twitter" title="Поделиться ссылкой в Твиттере">Твитнуть</div>
+                        <div class="odnoklassniki" title="Поделиться ссылкой в Одноклассниках">Класс!</div>
+                        <div class="mailru" title="Поделиться ссылкой в Моём мире">Нравится</div>
+                        <div class="plusone" title="Поделиться ссылкой в Google+">Google+</div>
+                    </div>
+                </div>
+
+                <div class="download_bl">
+                    <a class="download_film" href="<%- movie.url %>/<%- page.urls.movies.download %>" rel="nofollow"></a>
+                </div>
+
+            </div>
+
+            <% if (movie.pictures.length) { %>
+
+            <div class="new_cadrs">
+                <div style="text-align: center; margin: 10px auto;">
+                    <div class="cadrs_view">
+                        <div class="cadrs_container">
+                            <% movie.pictures.forEach(function (picture) { %>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title_ru %> <%- movie.year %> кадры" title="<%- movie.title_ru %>"></a>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+
+            <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+
+            <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
+
+            <div class="relat_films">
+
+                <div class="rf_head">
+                    <h4><%- category.name %></h4>
+                </div>
+
+                <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
+
+                <div class="item">
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"/></a>
+                    <div class="link"><a href="<%- movie.url %>"><%- movie.title_ru %> <%- movie.year %></a></div>
+                </div>
+
+                <% }); } %>
+
+            </div>
+
+            <% }); } %>
+
+            <% } } } %>
+
+            <div class="comment-list">
+
+                <% if (page.comments) { %>
+                <%- page.comments %>
+                <% } %>
+
+            </div>
+
+        </div>
+
+        <div class="main-info">
+            ﻿
+            <div class="page_seo">
+                <%- page.seo %>
+            </div>
+
+        </div>
+
+        <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
+
+            <div>Вы надавно смотрели:</div>
+            <div id="recentlyViewed"></div>
+
+        </div>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+</div>
+
+<div id="footer">
+
+    <% include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>

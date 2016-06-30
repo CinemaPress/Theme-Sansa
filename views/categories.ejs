@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<% include includes/header.ejs %>
+
+<div id="content">
+
+    <div class="left">
+
+        <% include includes/left.ejs %>
+
+    </div>
+
+    <div class="right">
+
+        <div class="speedbar">
+            <span id="dle-speedbar">
+                <a href="/">Главная</a> &#9658;
+                <%- page.title %>
+            </span>
+        </div>
+
+        <div class="category-name_2 category-name_2_podb">
+            <h1><%- page.title %></h1>
+        </div>
+
+        <% if (typeof categories == 'object' && categories.length) { %>
+
+        <div id="dle-content">
+            <div class="podborki_cat_2">
+
+                <% categories.forEach(function (category) { %>
+
+                <div class="podborki_cat_item">
+                    <div class="podborki_cat_item_photo">
+                        <a href="<%- category.url %>" rel="nofollow">
+                            <img src="<% if (category.image) { %> <%- category.image %> <% } else { %>http://st.kp.yandex.net/images/kadr/sm_2136182.jpg<% } %>" alt="<%- category.name %>"></a>
+                    </div>
+                    <div class="podborki_cat_item_title"><a href="<%- category.url %>"><%- category.name %></a></div>
+                </div>
+
+                <% }); %>
+
+            </div>
+        </div>
+
+        <% } %>
+
+        <div class="main-info">
+            ﻿
+            <div class="page_seo">
+                <h1><%- page.title %></h1>
+                <%- page.seo %>
+            </div>
+
+        </div>
+
+        <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
+
+            <div>Вы надавно смотрели:</div>
+            <div id="recentlyViewed"></div>
+
+        </div>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+</div>
+
+
+<div id="footer">
+
+    <% include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<% include includes/header.ejs %>
+
+<div id="content">
+
+    <div class="left">
+
+        <% include includes/left.ejs %>
+
+    </div>
+
+    <div class="right">
+
+        <div class="speedbar">
+            <span id="dle-speedbar">
+                <a href="/">Главная</a> &#9658;
+                <%- page.title %>
+            </span>
+        </div>
+
+        <div class="category-name_2">
+            <h1><%- page.title %></h1>
+        </div>
+
+        <% if (typeof top == 'object' && top.movies.length) { %>
+
+        <div class="topcat">
+
+            <div class="topcat_cont">
+
+                <p class="tit"><%- top.name %></p>
+
+                <div>
+                    <ul class="hs_container" style="margin: 0;padding: 0;position: relative;list-style-type: none;z-index: 1;">
+
+                        <% for (var m = 0; m < top.movies.length; m++) { %>
+
+                        <li>
+                            <div class="tc_item">
+                                <a href="<%- top.movies[m].url %>" rel="nofollow">
+                                    <img src="<%- top.movies[m].poster %>" alt="<%- top.movies[m].title_ru %>" title="<%- top.movies[m].title_ru %>">
+                                </a>
+                                <p class="tc_item_title">
+                                    <a href="<%- top.movies[m].url %>"><%- top.movies[m].title_ru %></a>
+                                </p>
+                            </div>
+                        </li>
+
+                        <% if (m >= 4) break; } %>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <% } %>
+
+        <div class="sortn">
+            <div>
+                <% page.sorting.forEach(function (sort) { %>
+
+                <% if (sort.active) { %>
+
+                <a href="<%- sort.url %>"> <strong><%- sort.name %></strong> </a>
+
+                <% } else { %>
+
+                <a href="<%- sort.url %>">
+                    <%- sort.name %>
+                </a>
+
+                <% } %>
+
+                <% }); %>
+            </div>
+        </div>
+
+
+        <div id="dle-content">
+
+            <% if (typeof movies == 'object' && movies.length) { %>
+
+            <% movies.forEach(function (movie) { %>
+
+            <div class="story story_m">
+                <div class="s_name">
+                    <div class="fname">
+                        <a href="<%- movie.url %>">
+                            <%- movie.title_ru %>
+                            <span><%- movie.year %></span> </a>
+                    </div>
+                </div>
+
+                <% if (movie.rating) { %>
+
+                <div class="rating show_rating_panel">
+                    <span class="text">Общий рейтинг:</span>
+                    <div class="vote-num">
+                        <span><%- movie.rating / 10 %></span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <% } %>
+
+                <div class="poster">
+
+                    <div class="poster_over_2">
+
+                        <a href="<%- movie.url %>" rel="nofollow" class="poster_over_2_play"></a>
+                        <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow" class="poster_tr"></a>
+
+                    </div>
+
+                    <a href="<%- movie.url %>" rel="nofollow">
+                        <img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"> </a>
+
+                </div>
+
+                <div class="description">
+                    <% if (movie.description) { %>
+                    <span>Описание:</span>
+                    <p>
+                        <%- movie.description.substr(0, 200) %>...
+                    </p>
+                    <% } %>
+                    <div class="information">
+                        <ul>
+                            <% if (movie.year) { %>
+                            <li><span>Год выпуска:</span> <%- movie.year %></li>
+                            <% } %>
+                            <% if (movie.countries) { %>
+                            <li><span>Страна:</span> <%- movie.countries %></li>
+                            <% } %>
+                            <% if (movie.genres) { %>
+                            <li><span>Жанр:</span> <%- movie.genres %></li>
+                            <% } %>
+                            <% if (movie.directors) { %>
+                            <li><span>Режиссер:</span> <%- movie.directors %></li>
+                            <% } %>
+                            <% if (movie.kp_vote) { %>
+                            <li><span>Рейтинг КиноПоиск:</span> <%- movie.kp_rating / 10 %> (<%- movie.kp_vote %>)</li>
+                            <% } %>
+                            <% if (movie.imdb_vote) { %>
+                            <li><span>Рейтинг IMDb:</span> <%- movie.imdb_rating / 10 %> (<%- movie.imdb_vote %>)</li>
+                            <% } %>
+                            <% if (movie.premiere) { %>
+                            <li><span>Премьера:</span> <%- movie.premiere %></li>
+                            <% } %>
+                        </ul>
+                        <div class="read-more">
+                            <a href="<%- movie.url %>" rel="nofollow" class="read"><span>Смотреть онлайн</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% }); } %>
+
+            <div class="navigation">
+
+                <span class="list-pages">
+                    <% if (page.pagination.prev.length) { %>
+                    <% page.pagination.prev.slice(-5).forEach(function (prev) { %>
+                    <a href="<%- prev.link %>" rel="nofollow">
+                        <%- prev.number %>
+                    </a>
+                    <% }); %>
+                    <% } %>
+                    <span><%- page.pagination.current %></span>
+                    <% if (page.pagination.next.length) { %>
+                    <% page.pagination.next.slice(0, 5).forEach(function (next) { %>
+                    <a href="<%- next.link %>" rel="nofollow">
+                        <%- next.number %>
+                    </a>
+                    <% }); %>
+                    <% } %>
+                </span>
+            </div>
+        </div>
+
+        <div class="main-info">
+            ﻿
+            <div class="page_seo">
+                <h1><%- page.title %></h1>
+                <%- page.seo %>
+            </div>
+
+        </div>
+
+        <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
+
+            <div>Вы надавно смотрели:</div>
+            <div id="recentlyViewed"></div>
+
+        </div>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+</div>
+
+<div id="footer">
+
+    <% include includes/footer.ejs %>
+
+</div>
+
+</body>
+</html>

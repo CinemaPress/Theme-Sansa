@@ -1,0 +1,87 @@
+<div class="navigation">
+
+    <div class="category">
+        <div class="title">Категории</div>
+        <ul>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>">Все категории</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/биография">Биографии</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/боевик">Боевики</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/вестерн">Вестерны</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/военный">Военные</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/детектив">Детективы</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/документальный">Документальные</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/драма">Драмы</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/история">Исторические</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/комедия">Комедии</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/криминал">Криминал</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/мелодрама">Мелодрамы</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/мультфильм">Мультфильмы</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/приключения">Приключения</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/семейный">Семейные</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/спорт">Спортивные</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/триллер">Триллеры</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/ужасы">Ужасы</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фантастика">Фантастика</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фэнтези">Фэнтези</a></li>
+            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
+        </ul>
+    </div>
+
+
+    <div class="others">
+
+        <div class="year">
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2">HD фильмы</a>
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section">Новинки КИНО</a>
+            <ul>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>">Все годы</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">2016 год</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">2015 год</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2014">2014 год</a></li>
+            </ul>
+        </div>
+
+        <div class="country">
+            <ul>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>">Все страны</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/США">Американские</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Великобритания">Британские</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Россия">Российские</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Германия">Немецкие</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Франция">Французские</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Индия">Индийские</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Япония">Японские</a></li>
+            </ul>
+        </div>
+
+        <div class="series">
+            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section">Сериалы</a>
+            <ul>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Популярные</a></li>
+                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up">Рейтинговые</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+ 
+<% if (typeof soon == 'object' && soon.movies.length) { %>
+
+<div class="new-items new_sb">
+
+    <% soon.movies.forEach(function (movie) { %>
+
+    ﻿<div class="item">
+        <div class="poster">
+            <div class="sc_info">В прокате с<br> <%- movie.premiere %></div>
+            <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"></a>
+        </div>
+        <div class="link"><a href="<%- movie.url %>"><%- movie.title_ru %></a></div>
+    </div>
+
+    <% }); %>
+
+</div>
+
+<% } %>
