@@ -104,12 +104,8 @@
             </div>
             <div class="player-block">
 
-                <% if (movie.pictures.length) { %>
-
-                    <% movie.pictures.forEach(function (picture) { %>
-                    <img src="<%- picture.picture_big %>" alt="<%- movie.title_ru %> <%- movie.year %> кадры" title="<%- movie.title_ru %>" style="width: 100%;">
-                    <% }); %>
-
+                <% if (page.player) { %>
+                <%- page.player %>
                 <% } %>
 
                 <div class="shares">
