@@ -1,7 +1,7 @@
 # Theme Sansa
-:art: Шаблон «Sansa» для CinemaPress ACMS (kinovmeste.net)
+:art: Шаблон «Sansa» для CinemaPress ACMS
 
-![Шаблон «Sansa» для CinemaPress ACMS (kinovmeste.net)](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Шаблон «Sansa» для CinemaPress ACMS (kinovmeste.net)")
+![Шаблон «Sansa» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Шаблон «Sansa» для CinemaPress ACMS")
 
 ## Установка
 1. [Скачать архив](https://github.com/CinemaPress/Theme-Sansa/archive/master.zip)
