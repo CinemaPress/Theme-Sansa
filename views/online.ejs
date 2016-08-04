@@ -22,7 +22,7 @@
         <div class="speedbar">
             <span id="dle-speedbar">
                 <a href="/">Главная</a> &#9658;
-                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <%- movie.title_ru %>
+                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title_ru %></a> &#9658; Кинозал
             </span>
         </div>
 
@@ -52,10 +52,6 @@
 
                 <div class="description">
                     <a href="#watch-online" class="w-online" rel="nofollow"></a>
-                    <% if (movie.description) { %>
-                    <div class="full_desc">Описание:</div>
-                    <p><%- movie.description %></p>
-                    <% } %>
                 </div>
 
                 <div class="new_information">
