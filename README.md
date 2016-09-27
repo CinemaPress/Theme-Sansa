@@ -1,7 +1,10 @@
 # Theme Sansa
-:art: Шаблон «Sansa» для CinemaPress ACMS
 
 ![Шаблон «Sansa» для CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Шаблон «Sansa» для CinemaPress ACMS")
+
+:art: Шаблон «Sansa» для CinemaPress ACMS
+
+- <a href="http://Sansa.CinemaPress.org/" target="_blank">Sansa.CinemaPress.org</a>
 
 ## Установка
 1. [Скачать архив](https://github.com/CinemaPress/Theme-Sansa/archive/master.zip)
