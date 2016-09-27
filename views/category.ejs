@@ -127,10 +127,10 @@
                 </div>
 
                 <div class="description">
-                    <% if (movie.description) { %>
+                    <% if (movie.description_short) { %>
                     <span>Описание:</span>
                     <p>
-                        <%- movie.description.substr(0, 200) %>...
+                        <%- movie.description_short %>...
                     </p>
                     <% } %>
                     <div class="information">
