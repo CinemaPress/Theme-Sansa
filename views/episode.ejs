@@ -22,7 +22,7 @@
         <div class="speedbar">
             <span id="dle-speedbar">
                 <a href="/">Главная</a> &#9658;
-                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title_ru %></a> &#9658; Галерея
+                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title_ru %></a> &#9658; Серия онлайн
             </span>
         </div>
 
@@ -30,7 +30,7 @@
 
             <div class="story full">
 
-                <div class="s_name"><h1><%- movie.title_ru %> кадры из фильма <span><%- movie.year %></span></h1></div>
+                <div class="s_name"><h1><%- page.title %></h1></div>
 
                 <% if (movie.rating) { %>
 
@@ -51,7 +51,7 @@
                 </div>
 
                 <div class="description">
-                    <a href="<%- movie.url %>/<%- page.urls.movies.online %>" class="w-online" rel="nofollow"></a>
+                    <a href="#watch-online" class="w-online" rel="nofollow"></a>
                     <% if (page.seo) { %>
                     <p><%- page.seo %></p>
                     <% } %>
@@ -104,16 +104,29 @@
 
             </div>
 
-            <div class="full_h2">
-                <h2><%- movie.title_ru %> кадры, картинки, скриншоты из фильма</h2>
+            <div class="full_h2" id="watch-online">
+                <h2><%- movie.title_ru %> новая серия в хорошем качестве</h2>
             </div>
             <div class="player-block">
 
-                <% if (page.player) { %>
-                <%- page.player %>
-                <% } %>
+                <div class="tabss">
+                    <div class="gall">
 
-                <div style="height: 10px"></div>
+                        <ul class="gal_line">
+                            <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
+                            <li><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
+                            <li class="complaint not-tab"><a href="javascript:void(0)" id="watchLater">Досмотреть позже</a></li>
+                        </ul>
+
+                        <div style="position: relative; height: 370px;">
+
+                            <% if (page.player) { %>
+                            <%- page.player %>
+                            <% } %>
+
+                        </div>
+                    </div>
+                </div>
 
                 <div class="shares">
                     <div class="social-likes">
@@ -131,6 +144,22 @@
                 </div>
 
             </div>
+
+            <% if (movie.pictures.length) { %>
+
+            <div class="new_cadrs">
+                <div style="text-align: center; margin: 10px auto;">
+                    <div class="cadrs_view">
+                        <div class="cadrs_container">
+                            <% movie.pictures.forEach(function (picture) { %>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title_ru %> <%- movie.year %> кадры" title="<%- movie.title_ru %>"></a>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
 
             <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
