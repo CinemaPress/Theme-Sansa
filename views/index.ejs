@@ -40,7 +40,7 @@
                     <div class="fname">
                         <a href="<%- movie.url %>">
                             <%- movie.title_ru %>
-                            <span><%- movie.year %></span> </a>
+                            <span><% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %></span> </a>
                     </div>
                 </div>
 
