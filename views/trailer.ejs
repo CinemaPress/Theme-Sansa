@@ -22,7 +22,7 @@
         <div class="speedbar">
             <span id="dle-speedbar">
                 <a href="/">Главная</a> &#9658;
-                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title_ru %></a> &#9658; Трейлер
+                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title %></a> &#9658; Трейлер
             </span>
         </div>
 
@@ -30,7 +30,7 @@
 
             <div class="story full">
 
-                <div class="s_name"><h1><%- movie.title_ru %> русский трейлер <span><%- movie.year %></span></h1></div>
+                <div class="s_name"><h1><%- movie.title %> русский трейлер <span><%- movie.year %></span></h1></div>
 
                 <% if (movie.rating) { %>
 
@@ -46,7 +46,7 @@
 
                 <div class="poster_m">
                     <div class="poster_main">
-                        <div class="poster_main_2"><img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"></div>
+                        <div class="poster_main_2"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"></div>
                     </div>
                 </div>
 
@@ -105,7 +105,7 @@
             </div>
 
             <div class="full_h2">
-                <h2><%- movie.title_ru %> смотреть трейлер</h2>
+                <h2><%- movie.title %> смотреть трейлер</h2>
             </div>
             <div class="player-block">
 
@@ -151,7 +151,7 @@
                     <div class="cadrs_view">
                         <div class="cadrs_container">
                             <% movie.pictures.forEach(function (picture) { %>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title_ru %> <%- movie.year %> кадры" title="<%- movie.title_ru %>"></a>
+                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %> <%- movie.year %> кадры" title="<%- movie.title %>"></a>
                             <% }); %>
                         </div>
                     </div>
@@ -173,8 +173,8 @@
                 <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
 
                 <div class="item">
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%- movie.title_ru %>" title="<%- movie.title_ru %>"/></a>
-                    <div class="link"><a href="<%- movie.url %>"><%- movie.title_ru %> <%- movie.year %></a></div>
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"/></a>
+                    <div class="link"><a href="<%- movie.url %>"><%- movie.title %> <%- movie.year %></a></div>
                 </div>
 
                 <% }); } %>
