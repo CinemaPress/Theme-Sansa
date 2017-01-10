@@ -114,6 +114,14 @@
             <div class="full_h2">
                 <h2><%- movie.title %> скачать бесплатно в хорошем качестве</h2>
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.top) { %>
+            <div style="clear: both;"></div>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.top %>
+            </div>
+            <% } %>
+
             <div class="player-block">
 
                 <div class="tabss">
@@ -147,6 +155,13 @@
                 </div>
 
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.under) { %>
+            <div style="clear: both;"></div>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.under %>
+            </div>
+            <% } %>
 
             <% if (movie.pictures.length) { %>
 
