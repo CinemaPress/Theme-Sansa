@@ -20,13 +20,21 @@
     <div class="right">
 
         <div class="speedbar">
-            <span id="dle-speedbar">
+            <span id="cinemapress-speedbar">
                 <a href="/">Главная</a> &#9658;
                 <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <%- movie.title %>
             </span>
         </div>
 
-        <div id="dle-content">
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.top %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
+
+        <div id="cinemapress-content">
 
             <div class="story full">
 
@@ -108,6 +116,13 @@
             <div class="full_h2" id="watch-online">
                 <h2><%- movie.title %> смотреть онлайн бесплатно в хорошем качестве</h2>
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.over) { %>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.over %>
+            </div>
+            <% } %>
+
             <div class="player-block">
 
                 <div class="tabss">
@@ -146,6 +161,12 @@
                 </div>
 
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.under) { %>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.under %>
+            </div>
+            <% } %>
 
             <% if (page.seo) { %>
 
@@ -215,6 +236,14 @@
             </div>
 
         </div>
+
+        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.bottom %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
 
         <div style="clear: both;"></div>
 

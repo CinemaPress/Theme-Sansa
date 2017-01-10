@@ -85,3 +85,9 @@
 </div>
 
 <% } %>
+
+<% if (typeof page.adv == 'object' && page.adv.left) { %>
+<div style="text-align: center; margin: 10px auto">
+    <%- page.adv.left %>
+</div>
+<% } %>

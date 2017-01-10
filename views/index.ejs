@@ -19,7 +19,15 @@
 
     <div class="right">
 
-        <div id="dle-content">
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.top %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
+
+        <div id="cinemapress-content">
 
             <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
@@ -115,6 +123,14 @@
             <% } } } %>
 
         </div>
+
+        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.bottom %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
 
         <% if (page.seo) { %>
 

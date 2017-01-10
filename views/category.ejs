@@ -20,11 +20,19 @@
     <div class="right">
 
         <div class="speedbar">
-            <span id="dle-speedbar">
+            <span id="cinemapress-speedbar">
                 <a href="/">Главная</a> &#9658;
                 <%- page.title %>
             </span>
         </div>
+
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.top %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
 
         <div class="category-name_2">
             <h1><%- page.title %></h1>
@@ -84,8 +92,7 @@
             </div>
         </div>
 
-
-        <div id="dle-content">
+        <div id="cinemapress-content">
 
             <% if (typeof movies == 'object' && movies.length) { %>
 
@@ -187,6 +194,14 @@
                 </span>
             </div>
         </div>
+
+        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.bottom %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
 
         <% if (page.seo) { %>
 

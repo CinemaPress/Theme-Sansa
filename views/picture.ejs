@@ -20,13 +20,21 @@
     <div class="right">
 
         <div class="speedbar">
-            <span id="dle-speedbar">
+            <span id="cinemapress-speedbar">
                 <a href="/">Главная</a> &#9658;
                 <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title %></a> &#9658; Галерея
             </span>
         </div>
 
-        <div id="dle-content">
+        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.top %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
+
+        <div id="cinemapress-content">
 
             <div class="story full">
 
@@ -107,6 +115,13 @@
             <div class="full_h2">
                 <h2><%- movie.title %> кадры, картинки, скриншоты из фильма</h2>
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.over) { %>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.over %>
+            </div>
+            <% } %>
+
             <div class="player-block">
 
                 <% if (page.player) { %>
@@ -131,6 +146,12 @@
                 </div>
 
             </div>
+
+            <% if (typeof page.adv == 'object' && page.adv.under) { %>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.under %>
+            </div>
+            <% } %>
 
             <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
@@ -168,6 +189,14 @@
             </div>
 
         </div>
+
+        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <div style="clear: both;"></div>
+        <div style="text-align: center; margin: 10px auto">
+            <%- page.adv.bottom %>
+        </div>
+        <div style="clear: both;"></div>
+        <% } %>
 
         <div style="clear: both;"></div>
 
