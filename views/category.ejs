@@ -213,17 +213,13 @@
                     <% } %>
                     <% if (page.pagination.prev.length) { %>
                     <% page.pagination.prev.forEach(function (prev) { %>
-                    <a href="<%- prev.link %>" rel="nofollow">
-                        <%- prev.number %>
-                    </a>
+                    <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
                     <% }); %>
                     <% } %>
                     <span><%- page.pagination.current %></span>
                     <% if (page.pagination.next.length) { %>
                     <% page.pagination.next.forEach(function (next) { %>
-                    <a href="<%- next.link %>" rel="nofollow">
-                        <%- next.number %>
-                    </a>
+                    <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
                     <% }); %>
                     <% } %>
                     <% if (page.pagination.last) { %>
