@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" prefix="og: http://ogp.me/ns#
+              video: http://ogp.me/ns/video#
+              ya: http://webmaster.yandex.ru/vocabularies/">
 <head>
 
     <% include includes/head.ejs %>
@@ -21,12 +23,11 @@
 
         <div class="speedbar">
             <span id="cinemapress-speedbar">
-                <a href="/">Главная</a> &#9658;
-                <% if (movie.genres_url) { %><%- movie.genres_url %><% } else { %><%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title %></a> &#9658; Трейлер
+                <a href="/">Главная</a><% if (movie.genre_url) { %> &#9658; <%- movie.genre_url %><% } else { %> &#9658; <%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title %></a> &#9658; Трейлер
             </span>
         </div>
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.top %>
@@ -94,6 +95,7 @@
                             <% if (movie.premiere) { %>
                             <li><span>Премьера:</span> <%- movie.premiere %></li>
                             <% } %>
+                            <li><span><% if (movie.quality) { %><%- movie.quality %><% } %><% if (movie.translate) { %> | <%- movie.translate %><% } %></span></li>
                         </ul>
                     </div>
                     <% if (movie.actors_url) { %>
@@ -116,7 +118,7 @@
                 <h2><%- movie.title %> смотреть трейлер</h2>
             </div>
 
-            <% if (typeof page.adv == 'object' && page.adv.over) { %>
+            <% if (typeof page.adv === 'object' && page.adv.over) { %>
             <div style="clear: both;"></div>
             <div style="text-align: center; margin: 10px auto">
                 <%- page.adv.over %>
@@ -160,7 +162,7 @@
 
             </div>
 
-            <% if (typeof page.adv == 'object' && page.adv.under) { %>
+            <% if (typeof page.adv === 'object' && page.adv.under) { %>
             <div style="clear: both;"></div>
             <div style="text-align: center; margin: 10px auto">
                 <%- page.adv.under %>
@@ -183,7 +185,24 @@
 
             <% } %>
 
-            <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+            <% if (typeof contents === 'object' && contents.length) { %>
+            <div style="clear: both"></div>
+            <% contents.forEach(function (content) { %>
+            <div style="float: left; width: 50%;">
+                <div style="margin: 0; padding: 10px">
+                    <a href="<%- content.url %>" class="cinemapress-news">
+                        <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>">
+                        <div class="cinemapress-news-title">
+                            <%- content.title %>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <% }); %>
+            <div style="clear: both"></div>
+            <% } %>
+
+            <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
 
             <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
 
@@ -220,7 +239,7 @@
 
         </div>
 
-        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.bottom %>

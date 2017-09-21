@@ -19,7 +19,7 @@
 
     <div class="right">
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.top %>
@@ -29,9 +29,9 @@
 
         <div id="cinemapress-content">
 
-            <% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+            <% if (typeof index === 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
-            <% if (movies[type].length) { movies[type].forEach(function (category) { %>
+            <% if (index[type].length) { index[type].forEach(function (category) { %>
 
             <div class="category-name_2">
                 <h2>
@@ -48,7 +48,7 @@
                     <div class="fname">
                         <a href="<%- movie.url %>">
                             <%- movie.title %>
-                            <span><% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия <% if (movie.translate) { %><%- movie.translate %><% } %><% } else { %><%- movie.year %><% } %></span> </a>
+                            <span><% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия<% } else { %><%- movie.year %><% } %></span> </a>
                     </div>
                 </div>
 
@@ -80,8 +80,8 @@
 
                 <div class="description">
                     <% if (movie.description_short) { %>
-                    <span>Описание:</span>
                     <p>
+                        <span>Описание:</span>
                         <%- movie.description_short %>...
                     </p>
                     <% } %>
@@ -96,17 +96,22 @@
                             <% if (movie.genres) { %>
                             <li><span>Жанр:</span> <%- movie.genres %></li>
                             <% } %>
-                            <% if (movie.directors) { %>
-                            <li><span>Режиссер:</span> <%- movie.directors %></li>
-                            <% } %>
                             <% if (movie.kp_vote) { %>
-                            <li><span>Рейтинг КиноПоиск:</span> <%- movie.kp_rating / 10 %></li>
+                            <li><span>Рейтинг КиноПоиск:</span> <%- movie.kp_rating / 10 %> (<%- movie.kp_vote %>)</li>
                             <% } %>
                             <% if (movie.imdb_vote) { %>
                             <li><span>Рейтинг IMDb:</span> <%- movie.imdb_rating / 10 %> (<%- movie.imdb_vote %>)</li>
                             <% } %>
                             <% if (movie.premiere) { %>
                             <li><span>Премьера:</span> <%- movie.premiere %></li>
+                            <% } %>
+                            <% if (movie.quality) { %>
+                            <li><span>Качество:</span> <%- movie.quality %></li>
+                            <% } %>
+                            <% if (movie.translate) { %>
+                            <li><span>Перевод:</span> <%- movie.translate %></li>
+                            <% } else { %>
+                            <li><br></li>
                             <% } %>
                         </ul>
                         <div class="read-more">
@@ -122,11 +127,15 @@
 
             <% } } } %>
 
+            <% if (typeof page.pagination === 'object') { %>
             <div class="navigation">
-
                 <span class="list-pages">
+                    <% if (page.pagination.first) { %>
+                    <a href="<%- page.pagination.first.link %>" rel="nofollow"><%- page.pagination.first.number %></a>
+                    <span class="nav_ext">...</span>
+                    <% } %>
                     <% if (page.pagination.prev.length) { %>
-                    <% page.pagination.prev.slice(-5).forEach(function (prev) { %>
+                    <% page.pagination.prev.forEach(function (prev) { %>
                     <a href="<%- prev.link %>" rel="nofollow">
                         <%- prev.number %>
                     </a>
@@ -134,18 +143,23 @@
                     <% } %>
                     <span><%- page.pagination.current %></span>
                     <% if (page.pagination.next.length) { %>
-                    <% page.pagination.next.slice(0, 5).forEach(function (next) { %>
+                    <% page.pagination.next.forEach(function (next) { %>
                     <a href="<%- next.link %>" rel="nofollow">
                         <%- next.number %>
                     </a>
                     <% }); %>
                     <% } %>
+                    <% if (page.pagination.last) { %>
+                    <span class="nav_ext">...</span>
+                    <a href="<%- page.pagination.last.link %>" rel="nofollow"><%- page.pagination.last.number %></a>
+                    <% } %>
                 </span>
             </div>
+            <% } %>
 
         </div>
 
-        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.bottom %>

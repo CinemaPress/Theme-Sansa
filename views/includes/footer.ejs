@@ -1,7 +1,7 @@
 <div class="content">
     <ul>
-        <li style="color: #fff">&copy;&nbsp;2017&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a></li>
-        <li><a href="<%- page.protocol %><%- page.domain %>" rel="nofollow">Главная</a></li>
+        <li style="color: #fff">&copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a></li>
+        <li><a href="/" rel="nofollow">Главная</a></li>
         <li style="color: #ccc">Для связи с администрацией: <%- page.email %></li>
         <li class="top" id="back-top"><a href="#top" id="top_footer" rel="nofollow">Вверх</a></li>
     </ul>
@@ -17,7 +17,7 @@
     };
     (function () {
         var wf = document.createElement('script');
-        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        wf.src = ('https:' === document.location.protocol ? 'https' : 'http') +
                 '://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
         wf.type = 'text/javascript';
         wf.async = 'true';

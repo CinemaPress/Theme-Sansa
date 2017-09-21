@@ -26,7 +26,7 @@
             </span>
         </div>
 
-        <% if (typeof page.adv == 'object' && page.adv.top) { %>
+        <% if (typeof page.adv === 'object' && page.adv.top) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.top %>
@@ -38,29 +38,24 @@
             <h1><%- page.title %></h1>
         </div>
 
-        <% if (typeof categories == 'object' && categories.length) { %>
-
-        <div id="cinemapress-content">
-            <div class="podborki_cat_2">
-
-                <% categories.forEach(function (category) { %>
-
-                <div class="podborki_cat_item">
-                    <div class="podborki_cat_item_photo">
-                        <a href="<%- category.url %>" rel="nofollow">
-                            <img src="<% if (category.image) { %> <%- category.image %> <% } else { %>https://st.kp.yandex.net/images/kadr/sm_2136182.jpg<% } %>" alt="<%- category.name %>"></a>
+        <% if (typeof categories === 'object' && categories.length) { %>
+        <div style="clear: both"></div>
+        <% categories.forEach(function (content) { %>
+        <div style="float: left; width: 50%;">
+            <div style="margin: 0; padding: 10px">
+                <a href="<%- content.url %>" class="cinemapress-news">
+                    <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>">
+                    <div class="cinemapress-news-title">
+                        <%- content.title %>
                     </div>
-                    <div class="podborki_cat_item_title"><a href="<%- category.url %>"><%- category.name %></a></div>
-                </div>
-
-                <% }); %>
-
+                </a>
             </div>
         </div>
-
+        <% }); %>
+        <div style="clear: both"></div>
         <% } %>
 
-        <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+        <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
         <div style="clear: both;"></div>
         <div style="text-align: center; margin: 10px auto">
             <%- page.adv.bottom %>

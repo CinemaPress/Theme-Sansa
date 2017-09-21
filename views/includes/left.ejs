@@ -3,27 +3,14 @@
     <div class="category">
         <div class="title">Категории</div>
         <ul>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>">Все категории</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/биография">Биографии</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/боевик">Боевики</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/вестерн">Вестерны</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/военный">Военные</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/детектив">Детективы</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/документальный">Документальные</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/драма">Драмы</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/история">Исторические</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/комедия">Комедии</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/криминал">Криминал</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/мелодрама">Мелодрамы</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/мультфильм">Мультфильмы</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/приключения">Приключения</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/семейный">Семейные</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/спорт">Спортивные</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/триллер">Триллеры</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/ужасы">Ужасы</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фантастика">Фантастика</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.genre %>/фэнтези">Фэнтези</a></li>
-            <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.anime %>">Аниме</a></li>
+            <li><a href="/<%- page.urls.genre %>">Все жанры</a></li>
+            <% page.urls.genres.forEach(function(genre) { %>
+            <li>
+                <a href="<%- genre.url %>">
+                    <%- genre.title %>
+                </a>
+            </li>
+            <% }); %>
         </ul>
     </div>
 
@@ -31,34 +18,38 @@
     <div class="others">
 
         <div class="year">
-            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2">HD фильмы</a>
-            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section">Новинки КИНО</a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2">HD фильмы</a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section">Новинки КИНО</a>
             <ul>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>">Все годы</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2017">2017 год</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2016">2016 год</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.year %>/2015">2015 год</a></li>
+                <li><a href="/<%- page.urls.year %>">Все годы</a></li>
+                <% page.urls.years.slice(0,10).forEach(function(year) { %>
+                <li>
+                    <a href="<%- year.url %>">
+                        <%- year.title %> год
+                    </a>
+                </li>
+                <% }); %>
             </ul>
         </div>
 
         <div class="country">
             <ul>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>">Все страны</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/США">Американские</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Великобритания">Британские</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Россия">Российские</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Германия">Немецкие</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Франция">Французские</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Индия">Индийские</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.country %>/Япония">Японские</a></li>
+                <li><a href="/<%- page.urls.country %>">Все страны</a></li>
+                <% page.urls.countries.slice(0,10).forEach(function(country) { %>
+                <li>
+                    <a href="<%- country.url %>">
+                        <%- country.title %>
+                    </a>
+                </li>
+                <% }); %>
             </ul>
         </div>
 
         <div class="series">
-            <a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section">Сериалы</a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section">Сериалы</a>
             <ul>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Популярные</a></li>
-                <li><a href="<%- page.protocol %><%- page.domain %>/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up">Рейтинговые</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Популярные</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up">Рейтинговые</a></li>
             </ul>
         </div>
 
@@ -66,11 +57,11 @@
 
 </div>
  
-<% if (typeof soon == 'object' && soon.movies.length) { %>
+<% if (typeof soon === 'object' && soon.length) { %>
 
 <div class="new-items new_sb">
 
-    <% soon.movies.forEach(function (movie) { %>
+    <% soon.forEach(function (movie) { %>
 
     ﻿<div class="item">
         <div class="poster">
@@ -86,10 +77,60 @@
 
 <% } %>
 
-<% if (typeof page.adv == 'object' && page.adv.left) { %>
+<% if (typeof news === 'object' && news.length) { %>
+<% news.forEach(function (content) { %>
+<div style="float: left; width: 100%;">
+    <div style="margin: 0; padding: 10px 0 10px 10px">
+        <a href="<%- content.url %>" class="cinemapress-news">
+            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>">
+            <div class="cinemapress-news-title">
+                <%- content.title %>
+            </div>
+        </a>
+    </div>
+</div>
+<% }); %>
+<div style="clear: both"></div>
+<% } %>
+
+<% if (typeof page.adv === 'object' && page.adv.left) { %>
 <div style="clear: both;"></div>
 <div style="text-align: center; margin: 10px auto">
     <%- page.adv.left %>
 </div>
+<div style="clear: both;"></div>
+<% } %>
+
+<% if (typeof recent === 'object' && recent.length) { %>
+<% recent.forEach(function (comment) { %>
+<div style="margin: 10px 0 10px 10px;">
+    <div class="cinemapress-recent" style="background: none; border: 0;">
+        <div class="cinemapress-recent-head">
+            <% if (comment.avatar) { %>
+            <div class="cinemapress-recent-head-avatar" style="background: #215EC3; border: 5px #215EC3 solid;">
+                <img src="<%- comment.avatar %>" alt="<%- comment.user %>">
+            </div>
+            <% } %>
+            <div class="cinemapress-recent-head-meta">
+                <div>
+                    <a href="<%- comment.url %>" style="color: #215EC3"><%- comment.title %></a>
+                </div>
+                <div>
+                    <span>
+                        <%- comment.user %>
+                    </span><span>
+                        сказал(а)
+                    </span><span>
+                        <%- comment.date %>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="cinemapress-recent-comment" style="background: #215EC3; color: #fff">
+            <%- comment.comment %>
+        </div>
+    </div>
+</div>
+<% }); %>
 <div style="clear: both;"></div>
 <% } %>
