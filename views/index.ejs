@@ -64,7 +64,9 @@
                 <div class="poster">
                     <div class="poster_over_2">
                         <a href="<%- movie.url %>" rel="nofollow" class="poster_over_2_play"></a>
+                        <% if (page.urls.movies.trailer) { %>
                         <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow" class="poster_tr"></a>
+                        <% } %>
                     </div>
                     <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"></a>
                 </div>

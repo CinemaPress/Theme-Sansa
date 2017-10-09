@@ -63,18 +63,12 @@
         <% } %>
 
         <% if (typeof top === 'object' && top.length) { %>
-
         <div class="topcat">
-
             <div class="topcat_cont">
-
                 <p class="tit">Топ</p>
-
                 <div>
                     <ul class="hs_container" style="margin: 0;padding: 0;position: relative;list-style-type: none;z-index: 1;">
-
                         <% for (var m = 0; m < top.length; m++) { %>
-
                         <li>
                             <div class="tc_item">
                                 <a href="<%- top[m].url %>" rel="nofollow">
@@ -85,15 +79,11 @@
                                 </p>
                             </div>
                         </li>
-
                         <% if (m >= 4) break; } %>
-
                     </ul>
                 </div>
-
             </div>
         </div>
-
         <% } %>
 
         <% if (typeof page.sorting === 'object') { %>
@@ -137,17 +127,13 @@
                 <% } %>
 
                 <div class="poster">
-
                     <div class="poster_over_2">
-
                         <a href="<%- movie.url %>" rel="nofollow" class="poster_over_2_play"></a>
+                        <% if (page.urls.movies.trailer) { %>
                         <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow" class="poster_tr"></a>
-
+                        <% } %>
                     </div>
-
-                    <a href="<%- movie.url %>" rel="nofollow">
-                        <img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"> </a>
-
+                    <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"> </a>
                 </div>
 
                 <div class="description">
