@@ -37,7 +37,7 @@
 
             <div class="story full">
 
-                <div class="s_name"><h1><%- movie.title %> смотреть онлайн <span><%- movie.year %></span></h1></div>
+                <div class="s_name"><h1><%- movie.title %> <span><%- movie.year %></span></h1></div>
 
                 <% if (movie.rating) { %>
 
@@ -58,10 +58,12 @@
                 </div>
 
                 <div class="description">
+                    <% if (page.urls.movies.online) { %>
                     <a href="#watch-online" class="w-online" rel="nofollow"></a>
+                    <% } %>
                     <% if (movie.description) { %>
                     <div class="full_desc">Описание:</div>
-                    <p><%- movie.description %></p>
+                    <p style="text-align:justify"><%- movie.description %></p>
                     <% } %>
                 </div>
 
@@ -114,7 +116,7 @@
             </div>
 
             <div class="full_h2" id="watch-online">
-                <h2><%- movie.title %> смотреть онлайн бесплатно в хорошем качестве</h2>
+                <h2><%- movie.title %></h2>
             </div>
 
             <% if (typeof page.adv === 'object' && page.adv.over) { %>
@@ -131,17 +133,19 @@
 
                         <ul class="gal_line">
                             <li class="active">Фильм</li>
+                            <% if (page.urls.movies.trailer) { %>
                             <li><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a></li>
+                            <% } %>
+                            <% if (page.urls.movies.online) { %>
                             <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a></li>
+                            <% } %>
                             <li class="complaint not-tab watchLaterBlock" style="display: none;"><a href="javascript:void(0)" id="watchLater">Досмотреть позже</a></li>
                         </ul>
 
                         <div style="position: relative; height: 370px;">
-
                             <% if (page.player) { %>
                             <%- page.player %>
                             <% } %>
-
                         </div>
                     </div>
                 </div>
@@ -157,9 +161,11 @@
                     </div>
                 </div>
 
+                <% if (page.urls.movies.download) { %>
                 <div class="download_bl">
                     <a class="download_film" href="<%- movie.url %>/<%- page.urls.movies.download %>" rel="nofollow"></a>
                 </div>
+                <% } %>
 
             </div>
 
@@ -181,19 +187,25 @@
             <% } %>
 
             <% if (movie.pictures.length) { %>
-
             <div class="new_cadrs">
                 <div style="text-align: center; margin: 10px auto;">
                     <div class="cadrs_view">
-                        <div class="cadrs_container">
+                        <div class="cadrs_container" id="lightgallery">
                             <% movie.pictures.forEach(function (picture) { %>
-                            <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %> <%- movie.year %> кадры" title="<%- movie.title %>"></a>
+                            <% var ahref = page.urls.movies.picture
+                                    ? movie.url + '/' + page.urls.movies.picture
+                                    : picture.picture_big %>
+                            <a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %> <%- movie.year %> кадры" title="<%- movie.title %>"></a>
                             <% }); %>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <% if (!page.urls.movies.picture) { %>
+            <link href="/themes/drogo/public/css/lightgallery.min.css" rel="stylesheet">
+            <script src="/themes/drogo/public/js/lightgallery.min.js"></script>
+            <script>lightGallery(document.getElementById('lightgallery'));</script>
+            <% } %>
             <% } %>
 
             <% if (typeof contents === 'object' && contents.length) { %>
@@ -213,39 +225,30 @@
             <div style="clear: both"></div>
             <% } %>
 
-            <% if (typeof movies === 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
-
-            <% if (movies[type].length) { movies[type].forEach(function (category) {  %>
-
+            <% if (typeof movies === 'object') {
+                    for (var type in movies) {
+            if (movies.hasOwnProperty(type) && movies[type].length) {
+            movies[type].forEach(function (category) { %>
             <div class="relat_films">
-
                 <div class="rf_head">
                     <h4><%- category.name %></h4>
                 </div>
-
-                <% if (category.movies.length) { category.movies.forEach(function (movie) {  %>
-
+                <% if (category.movies.length) {
+                category.movies.forEach(function (movie) {  %>
                 <div class="item">
                     <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"/></a>
                     <div class="link"><a href="<%- movie.url %>"><%- movie.title %> <%- movie.year %></a></div>
                 </div>
-
                 <% }); } %>
-
             </div>
-
-            <% }); } %>
-
-            <% } } } %>
+            <% }); } } } %>
 
             <div style="clear: both;"></div>
 
             <div class="comment-list">
-
                 <% if (page.comments) { %>
                 <%- page.comments %>
                 <% } %>
-
             </div>
 
         </div>
@@ -261,10 +264,8 @@
         <div style="clear: both;"></div>
 
         <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
-
             <div>Вы надавно смотрели:</div>
             <div id="recentlyViewed"></div>
-
         </div>
 
     </div>

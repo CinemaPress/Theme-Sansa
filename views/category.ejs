@@ -99,20 +99,12 @@
         <% if (typeof page.sorting === 'object') { %>
         <div class="sortn">
             <div>
-                <% page.sorting.forEach(function (sort) { %>
-
-                <% if (sort.active) { %>
-
+                <% page.sorting.forEach(function (sort) {
+                    if (sort.active) { %>
                 <a href="<%- sort.url %>"> <strong><%- sort.name %></strong> </a>
-
                 <% } else { %>
-
-                <a href="<%- sort.url %>">
-                    <%- sort.name %>
-                </a>
-
+                <a href="<%- sort.url %>"> <%- sort.name %> </a>
                 <% } %>
-
                 <% }); %>
             </div>
         </div>
@@ -120,9 +112,8 @@
 
         <div id="cinemapress-content">
 
-            <% if (typeof movies === 'object' && movies.length) { %>
-
-            <% movies.forEach(function (movie) { %>
+            <% if (typeof movies === 'object' && movies.length) {
+                movies.forEach(function (movie) { %>
 
             <div class="story story_m">
                 <div class="s_name">
@@ -196,7 +187,7 @@
                             <% } %>
                         </ul>
                         <div class="read-more">
-                            <a href="<%- movie.url %>" rel="nofollow" class="read"><span>Смотреть онлайн</span></a>
+                            <a href="<%- movie.url %>" rel="nofollow" class="read"><span>Подробнее ...</span></a>
                         </div>
                     </div>
                 </div>
@@ -247,26 +238,18 @@
         <% } %>
 
         <% if (page.seo) { %>
-
         <div style="clear: both;"></div>
-
         <div class="main-info">
-            ﻿
             <div class="page_seo">
                 <%- page.seo %>
             </div>
-
         </div>
-
         <div style="clear: both;"></div>
-
         <% } %>
 
         <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
-
             <div>Вы надавно смотрели:</div>
             <div id="recentlyViewed"></div>
-
         </div>
 
     </div>
