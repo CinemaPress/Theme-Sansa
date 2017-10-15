@@ -21,7 +21,7 @@
 
         <div class="speedbar">
             <span id="cinemapress-speedbar">
-                <a href="/">Главная</a><% if (movie.genre_url) { %> &#9658; <%- movie.genre_url %><% } else { %> &#9658; <%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%- movie.title %></a> &#9658; Трекер
+                <a href="/">Главная</a><% if (movie.genre_url) { %> &#9658; <%- movie.genre_url %><% } else { %> &#9658; <%- movie.year_url %><% } %> &#9658; <a href="<%- movie.url %>"><%= movie.title %></a> &#9658; Трекер
             </span>
         </div>
 
@@ -37,7 +37,7 @@
 
             <div class="story full">
 
-                <div class="s_name"><h1><%- movie.title %> скачать фильм <span><%- movie.year %></span></h1></div>
+                <div class="s_name"><h1><%= movie.title %> скачать фильм <span><%- movie.year %></span></h1></div>
 
                 <% if (movie.rating) { %>
 
@@ -53,7 +53,7 @@
 
                 <div class="poster_m">
                     <div class="poster_main">
-                        <div class="poster_main_2"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"></div>
+                        <div class="poster_main_2"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></div>
                     </div>
                 </div>
 
@@ -108,14 +108,14 @@
                 </div>
 
                 <div class="new_information episodesListBlock" style="border-top: 0; margin: 10px; padding: 0; display: none;">
-                    <h3><%- movie.title %> новые серии</h3>
+                    <h3><%= movie.title %> новые серии</h3>
                     <div id="episodesList" data-id="<%- movie.kp_id %>"></div>
                 </div>
 
             </div>
 
             <div class="full_h2">
-                <h2><%- movie.title %> скачать бесплатно в хорошем качестве</h2>
+                <h2><%= movie.title %> скачать бесплатно в хорошем качестве</h2>
             </div>
 
             <% if (typeof page.adv === 'object' && page.adv.over) { %>
@@ -177,7 +177,7 @@
                             <% var ahref = page.urls.movies.picture
                                     ? movie.url + '/' + page.urls.movies.picture
                                     : picture.picture_big %>
-                            <a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%- movie.title %> <%- movie.year %> кадры" title="<%- movie.title %>"></a>
+                            <a href="<%- ahref %>"><img src="<%- picture.picture_min %>" alt="<%= movie.title %> <%- movie.year %> кадры" title="<%= movie.title %>"></a>
                             <% }); %>
                         </div>
                     </div>
@@ -218,8 +218,8 @@
                 <% if (category.movies.length) {
                 category.movies.forEach(function (movie) {  %>
                 <div class="item">
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"/></a>
-                    <div class="link"><a href="<%- movie.url %>"><%- movie.title %> <%- movie.year %></a></div>
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"/></a>
+                    <div class="link"><a href="<%- movie.url %>"><%= movie.title %> <%- movie.year %></a></div>
                 </div>
                 <% }); } %>
             </div>

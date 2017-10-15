@@ -48,7 +48,7 @@
                 <div class="s_name">
                     <div class="fname">
                         <a href="<%- movie.url %>">
-                            <%- movie.title %>
+                            <%= movie.title %>
                             <span><% if (movie.season && movie.episode) { %><%- movie.season %> сезон <%- movie.episode %> серия<% } else { %><%- movie.year %><% } %></span> </a>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow" class="poster_tr"></a>
                         <% } %>
                     </div>
-                    <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%- movie.title %>" title="<%- movie.title %>"></a>
+                    <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
                 </div>
 
                 <div class="description">
