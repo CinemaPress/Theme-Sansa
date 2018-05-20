@@ -2,7 +2,7 @@
     <ul>
         <li style="color: #fff">&copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a></li>
         <li><a href="/" rel="nofollow">Главная</a></li>
-        <li style="color: #ccc">Для связи с администрацией: <%- page.email %></li>
+        <li style="color: #ccc">Для связи с администрацией: <span id="mylo">Activate JS</span><script>(function(d,i,l,r){d.getElementById(i).innerHTML=l+'@'+r;})(window.document,'mylo','<%- page.email.split('@')[0] %>','<%- page.email.split('@')[1] %>');</script></li>
         <li class="top" id="back-top"><a href="#top" id="top_footer" rel="nofollow">Вверх</a></li>
     </ul>
 </div>
