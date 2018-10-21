@@ -21,7 +21,7 @@
 
         <div class="speedbar">
             <span id="cinemapress-speedbar">
-                <a href="/">Главная</a> &#9658;
+                <a href="/"><%- page.l.home %></a> &#9658;
                 <%= page.title %>
             </span>
         </div>
@@ -35,7 +35,7 @@
         <% } %>
 
         <div class="category-name_2 category-name_2_podb">
-            <h1><%= page.title %></h1>
+            <h1><%- page.h1 %></h1>
         </div>
 
         <% if (typeof categories === 'object' && categories.length) { %>
@@ -73,7 +73,7 @@
         <% } %>
 
         <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
-            <div>Вы надавно смотрели:</div>
+            <div><%- page.l.watched %>:</div>
             <div id="recentlyViewed"></div>
         </div>
 

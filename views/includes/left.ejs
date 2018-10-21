@@ -1,9 +1,11 @@
 <div class="navigation">
 
+    <div style="margin: 0 0 30px 0;color: #fff;font-size: 20px;font-weight: bold;"><%- page.l.navigation %></div>
+
     <div class="category">
-        <div class="title">Категории</div>
+        <div class="title"><%- page.l.menu %></div>
         <ul>
-            <li><a href="/<%- page.urls.genre %>">Все жанры</a></li>
+            <li><a href="/<%- page.urls.genre %>"><%- page.l.allGenres %></a></li>
             <% page.urls.genres.forEach(function(genre) { %>
             <li>
                 <a href="<%- genre.url %>">
@@ -18,14 +20,14 @@
     <div class="others">
 
         <div class="year">
-            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2">Все фильмы</a>
-            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section">Новинки КИНО</a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2"><%- page.l.movies %></a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section"><%- page.l.premieres %></a>
             <ul>
-                <li><a href="/<%- page.urls.year %>">Все годы</a></li>
+                <li><a href="/<%- page.urls.year %>"><%- page.l.allYears %></a></li>
                 <% page.urls.years.slice(0,10).forEach(function(year) { %>
                 <li>
                     <a href="<%- year.url %>">
-                        <%- year.title %> год
+                        <%- year.title %>
                     </a>
                 </li>
                 <% }); %>
@@ -34,7 +36,7 @@
 
         <div class="country">
             <ul>
-                <li><a href="/<%- page.urls.country %>">Все страны</a></li>
+                <li><a href="/<%- page.urls.country %>"><%- page.l.allCountries %></a></li>
                 <% page.urls.countries.slice(0,10).forEach(function(country) { %>
                 <li>
                     <a href="<%- country.url %>">
@@ -46,26 +48,28 @@
         </div>
 
         <div class="series">
-            <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section">Сериалы</a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section"><%- page.l.series %></a>
             <ul>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up">Популярные</a></li>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up">Рейтинговые</a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up"><%- page.l.popular %></a></li>
+                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up"><%- page.l.rating %></a></li>
             </ul>
         </div>
 
     </div>
 
 </div>
- 
+
 <% if (typeof soon === 'object' && soon.length) { %>
 
 <div class="new-items new_sb">
+
+    <div style="margin: 0 0 30px 0;color: #fff;font-size: 20px;font-weight: bold;"><%- page.l.soon %></div>
 
     <% soon.forEach(function (movie) { %>
 
     ﻿<div class="item">
         <div class="poster">
-            <div class="sc_info">В прокате с<br> <%- movie.premiere %></div>
+            <div class="sc_info"><%- page.l.premiere %><br> <%- movie.premiere %></div>
             <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
         </div>
         <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
@@ -118,7 +122,7 @@
                     <span>
                         <%- comment.user %>
                     </span><span>
-                        сказал(а)
+                        <%- page.l.said %>
                     </span><span>
                         <%- comment.date %>
                     </span>

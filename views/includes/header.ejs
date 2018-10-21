@@ -1,25 +1,12 @@
-<div class="new_top_menu" id="new_top_menu">
-    <div class="line">
-        <div class="right">
-            <div class="search">
-                <form action="/<%- page.urls.search %>/title" name="searchform" method="get">
-                    <input type="text" class="search_inp" name="q" autocomplete="off" placeholder="Поиск на сайте...">
-                    <input type="submit" class="search_but" value="" rel="nofollow">
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="new_head">
     <div class="head">
         <div class="logo">
-            <a href="/" rel="nofollow"><img src="/themes/sansa/public/images/logo.png" alt="Логотип" style="height:88px;"></a>
+            <a href="/" rel="nofollow"><img src="/themes/sansa/public/images/logo.png?v=<%- page.ver %>" alt="Logo" style="height:88px;"></a>
         </div>
-        <a href="javascript:void(0)" class="reg continueViewingBlock" id="continueViewing" style="display: none;">Остановились?</a>
+        <a href="javascript:void(0)" class="reg continueViewingBlock" id="continueViewing" style="display: none;"><%- page.l.continue %>?</a>
         <div class="search">
             <form action="/<%- page.urls.search %>/title" name="searchform" method="get">
-                <input type="text" class="search_inp" name="q" id="story" autocomplete="off" placeholder="Поиск на сайте...">
+                <input type="text" class="search_inp" name="q" id="story" autocomplete="off" placeholder="<%- page.l.search %>...">
                 <input type="submit" class="search_but" value="" rel="nofollow">
             </form>
         </div>
@@ -36,7 +23,7 @@
             <ul class="hs_container">
 
                 <% slider.forEach(function (movie) { %>
-                
+
                 <li>
                     <div class="hs_item inner">
                         <a href="<%- movie.url %>">
@@ -53,10 +40,10 @@
         <div class="menu">
             <div class="links">
                 <ul>
-                    <li><a href="/" rel="nofollow">Главная</a></li>
-                    <li><a href="/<%- page.urls.content %>?tag=Коллекция">Подборки кино</a></li>
-                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>">Рейтинг фильмов</a></li>
-                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>">Рейтинг сериалов</a></li>
+                    <li><a href="/"><%- page.l.home %></a></li>
+                    <li><a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a></li>
+                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.rating %> (<%- page.l.movies %>)</a></li>
+                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.rating %> (<%- page.l.series %>)</a></li>
                 </ul>
             </div>
 
@@ -70,7 +57,7 @@
                 <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank" class="sbut in"></a><% } %>
             </div>
             <% } %>
-            
+
         </div>
     </div>
 
