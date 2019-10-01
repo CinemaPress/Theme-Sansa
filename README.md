@@ -1,10 +1,10 @@
 # Theme «sansa»
 
-![Theme «sansa» for CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Theme «sansa» for CinemaPress ACMS")
+![Theme «sansa» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Theme «sansa» for CinemaPress")
 
-:art: Theme «sansa» for CinemaPress ACMS
+:art: Theme «sansa» for CinemaPress
 
-- [Sansa.CinemaPress.org](http://Sansa.CinemaPress.org/)
+- [Sansa.CinemaPress.io](http://Sansa.CinemaPress.io/)
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Sansa/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Sansa/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-sansa/get/master.zip) or [Coding](https://coding.net/u/CinemaPress/p/Theme-Sansa/git/archive/master.zip)
@@ -14,7 +14,7 @@
 
 ## Installation via terminal
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```
 
 ## Как установить?
@@ -25,5 +25,5 @@
 
 ## Установка через терминал
 ```
-~# wget cinemapress.org/i -qO i && chmod +x i && ./i 3
+~# bash <(wget -qO- cinemapress.sh)
 ```

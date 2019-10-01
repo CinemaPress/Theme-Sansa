@@ -37,6 +37,13 @@
             <div class="category-name_2">
                 <h2>
                     <%- category.name %>
+                    <div class="randomMovieIndex">
+                        <div class="cinemapress-random-index"
+                             onclick="window.location.href='<%- category.url %>?random'"
+                             title="<%- page.l.random %>">
+                            <img src="/themes/sansa/public/images/dice.svg" alt="<%- page.l.random %>">
+                        </div>
+                    </div>
                 </h2>
             </div>
 
@@ -49,18 +56,19 @@
                     <div class="fname">
                         <a href="<%- movie.url %>">
                             <%= movie.title %>
-                            <span><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% } else { %><%- movie.year %><% } %></span> </a>
+                            <span><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% } else { %><%- movie.year %><% } %></span>
+                        </a>
+                        <% if (movie.rating) { %>
+                        <div class="rating show_rating_panel">
+                            <span class="text"><%- page.l.rating %>:</span>
+                            <div class="vote-num">
+                                <span><%- movie.rating / 10 %></span>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <% } %>
                     </div>
                 </div>
-                <% if (movie.rating) { %>
-                <div class="rating show_rating_panel">
-                    <span class="text"><%- page.l.rating %>:</span>
-                    <div class="vote-num">
-                        <span><%- movie.rating / 10 %></span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <% } %>
                 <div class="poster">
                     <div class="poster_over_2">
                         <a href="<%- movie.url %>" rel="nofollow" class="poster_over_2_play"></a>

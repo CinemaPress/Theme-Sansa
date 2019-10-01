@@ -3,11 +3,17 @@
         <div class="logo">
             <a href="/" rel="nofollow"><img src="/themes/sansa/public/images/logo.png?v=<%- page.ver %>" alt="Logo" style="height:88px;"></a>
         </div>
+        <div class="randomMovieMenu">
+            <a href="/?random" class="dice cinemapress-random-menu" title="<%- page.l.lucky %>">
+                <span><%- page.l.lucky %></span>
+            </a>
+        </div>
         <a href="javascript:void(0)" class="reg continueViewingBlock" id="continueViewing" style="display: none;"><%- page.l.continue %>?</a>
         <div class="search">
-            <form action="/<%- page.urls.search %>/title" name="searchform" method="get">
-                <input type="text" class="search_inp" name="q" id="story" autocomplete="off" placeholder="<%- page.l.search %>...">
+            <form action="/<%- page.urls.search %>" name="searchform" method="get">
+                <input type="text" class="search_inp" name="q" id="story" placeholder="<%- page.l.search %>..." data-autocomplete="desktop">
                 <input type="submit" class="search_but" value="" rel="nofollow">
+                <div class="cinemapress-autocomplete" data-autocomplete="desktop"></div>
             </form>
         </div>
     </div>
@@ -51,8 +57,8 @@
             <div class="social">
                 <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank" class="sbut tw"></a><% } %>
                 <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank" class="sbut fb"></a><% } %>
-                <% if (page.social.gplus) { %><a href="<%- page.social.gplus %>" target="_blank" class="sbut gp"></a><% } %>
                 <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank" class="sbut vk"></a><% } %>
+                <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank" class="sbut tg"></a><% } %>
                 <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank" class="sbut yt"></a><% } %>
                 <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank" class="sbut in"></a><% } %>
             </div>

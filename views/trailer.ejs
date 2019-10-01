@@ -134,9 +134,9 @@
                             <% } %>
                         </ul>
 
-                        <div style="position: relative; height: 370px;">
+                        <div id="cinemapress-player" style="width: 683px;">
                             <% if (page.player) { %>
-                            <%- page.player %>
+                                <%- page.player %>
                             <% } %>
                         </div>
                     </div>
@@ -147,9 +147,6 @@
                         <div class="vkontakte" title="<%- page.l.vk %>"><%- page.l.vk %></div>
                         <div class="facebook" title="<%- page.l.facebook %>"><%- page.l.facebook %></div>
                         <div class="twitter" title="<%- page.l.twitter %>"><%- page.l.twitter %></div>
-
-
-                        <div class="plusone" title="<%- page.l.google %>"><%- page.l.google %></div>
                     </div>
                 </div>
 
@@ -212,7 +209,16 @@
             movies[type].forEach(function (category) { %>
             <div class="relat_films">
                 <div class="rf_head">
-                    <h4><%- category.name %></h4>
+                    <h4>
+                        <%- category.name %>
+                        <div class="randomMovieRelated">
+                            <div class="cinemapress-random-related"
+                                 onclick="window.location.href='<%- category.url %>?random'"
+                                 title="<%- page.l.random %>">
+                                <img src="/themes/sansa/public/images/dice.svg" alt="<%- page.l.random %>">
+                            </div>
+                        </div>
+                    </h4>
                 </div>
                 <% if (category.movies.length) {
                 category.movies.forEach(function (movie) {  %>
