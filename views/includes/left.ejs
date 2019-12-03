@@ -73,7 +73,7 @@ index[type].forEach(function (category) { %>
 
             ﻿<div class="item">
                 <div class="poster">
-                    <div class="sc_info"><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><br><% if (movie.translate) { %><%- movie.translate %><% } %><% } %></div>
+                    <div class="sc_info"><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% if (movie.translate) { %><br><%- movie.translate %><% } %><% } %></div>
                     <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
                 </div>
                 <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
