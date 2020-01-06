@@ -2,18 +2,18 @@
 <html lang="<%- page.language %>">
 <head>
 
-    <% include includes/head.ejs %>
+    <%- include('includes/head.ejs'); -%>
 
 </head>
 <body>
 
-<% include includes/header.ejs %>
+<%- include('includes/header.ejs'); -%>
 
 <div id="content">
 
     <div class="left">
 
-        <% include includes/left.ejs %>
+        <%- include('includes/left.ejs'); -%>
 
     </div>
 
@@ -27,11 +27,11 @@
         </div>
 
         <% if (typeof page.adv === 'object' && page.adv.top) { %>
-        <div style="clear: both;"></div>
-        <div style="text-align: center; margin: 10px auto">
-            <%- page.adv.top %>
-        </div>
-        <div style="clear: both;"></div>
+            <div style="clear: both;"></div>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.top %>
+            </div>
+            <div style="clear: both;"></div>
         <% } %>
 
         <div class="category-name_2 category-name_2_podb">
@@ -39,34 +39,34 @@
         </div>
 
         <% if (typeof categories === 'object' && categories.length) { %>
-        <div style="clear: both"></div>
-        <% categories.forEach(function (content) { %>
-        <div style="float:left;width:50%;">
-            <div style="margin:10px;padding:0;position:relative">
-                <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
-                <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
-            </div>
-        </div>
-        <% }); %>
-        <div style="clear: both"></div>
+            <div style="clear: both"></div>
+            <% categories.forEach(function (content) { %>
+                <div style="float:left;width:50%;">
+                    <div style="margin:10px;padding:0;position:relative">
+                        <div class="cinemapress-categories" style="background-image:url('<%- content.image %>');"></div>
+                        <a href="<%- content.url %>" class="cinemapress-categories-title"><%= content.title %></a>
+                    </div>
+                </div>
+            <% }); %>
+            <div style="clear: both"></div>
         <% } %>
 
         <% if (typeof page.adv === 'object' && page.adv.bottom) { %>
-        <div style="clear: both;"></div>
-        <div style="text-align: center; margin: 10px auto">
-            <%- page.adv.bottom %>
-        </div>
-        <div style="clear: both;"></div>
+            <div style="clear: both;"></div>
+            <div style="text-align: center; margin: 10px auto">
+                <%- page.adv.bottom %>
+            </div>
+            <div style="clear: both;"></div>
         <% } %>
 
         <% if (page.seo) { %>
-        <div style="clear: both;"></div>
-        <div class="main-info">
-            <div class="page_seo">
-                <%- page.seo %>
+            <div style="clear: both;"></div>
+            <div class="main-info">
+                <div class="page_seo">
+                    <%- page.seo %>
+                </div>
             </div>
-        </div>
-        <div style="clear: both;"></div>
+            <div style="clear: both;"></div>
         <% } %>
 
         <div class="main-info recentlyViewedBlock" style="margin: 20px 0 0 0; display: none;">
@@ -83,7 +83,7 @@
 
 <div id="footer">
 
-    <% include includes/footer.ejs %>
+    <%- include('includes/footer.ejs'); -%>
 
 </div>
 

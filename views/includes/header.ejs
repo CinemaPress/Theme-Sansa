@@ -1,10 +1,10 @@
 <div class="new_head">
     <div class="head">
         <div class="logo">
-            <a href="/" rel="nofollow"><img src="/themes/<%- page.theme %>/public/images/logo.png?v=<%- page.ver %>" alt="Logo" style="height:88px;"></a>
+            <a href="/" rel="nofollow"><img src="/themes/<%- page.theme %>/public/images/logo.svg?v=<%- page.ver %>" alt="Logo" style="height:88px;"></a>
         </div>
         <div class="randomMovieMenu">
-            <a href="/?random" class="dice cinemapress-random-menu" title="<%- page.l.lucky %>">
+            <a href="/?random" class="dice cinemapress-random-menu" title="<%= page.l.lucky %>">
                 <span><%- page.l.lucky %></span>
             </a>
         </div>
@@ -20,52 +20,52 @@
 
     <% if (typeof slider === 'object' && slider.length) { %>
 
-    <div class="carousel">
+        <div class="carousel">
 
-        <div class="hs_arrow hs_arrow_l enable"></div>
-        <div class="hs_arrow hs_arrow_r enable"></div>
+            <div class="hs_arrow hs_arrow_l enable"></div>
+            <div class="hs_arrow hs_arrow_r enable"></div>
 
-        <div class="hs_films carousel_container">
-            <ul class="hs_container">
+            <div class="hs_films carousel_container">
+                <ul class="hs_container">
 
-                <% slider.forEach(function (movie) { %>
+                    <% slider.forEach(function (movie) { %>
 
-                <li>
-                    <div class="hs_item inner">
-                        <a href="<%- movie.url %>">
-                            <div class="hs_item_play"></div>
-                            <img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>">
-                        </a>
-                    </div>
-                </li>
+                        <li>
+                            <div class="hs_item inner">
+                                <a href="<%- movie.url %>">
+                                    <div class="hs_item_play"></div>
+                                    <img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>">
+                                </a>
+                            </div>
+                        </li>
 
-                <% }); %>
+                    <% }); %>
 
-            </ul>
-        </div>
-        <div class="menu">
-            <div class="links">
-                <ul>
-                    <li><a href="/"><%- page.l.home %></a></li>
-                    <li><a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a></li>
-                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.rating %> (<%- page.l.movies %>)</a></li>
-                    <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.rating %> (<%- page.l.series %>)</a></li>
                 </ul>
             </div>
+            <div class="menu">
+                <div class="links">
+                    <ul>
+                        <li><a href="/"><%- page.l.home %></a></li>
+                        <li><a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a></li>
+                        <li><a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"><%- page.l.rating %> (<%- page.l.movies %>)</a></li>
+                        <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>"><%- page.l.rating %> (<%- page.l.series %>)</a></li>
+                    </ul>
+                </div>
 
-            <% if (page.social) { %>
-            <div class="social">
-                <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank" class="sbut tw"></a><% } %>
-                <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank" class="sbut fb"></a><% } %>
-                <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank" class="sbut vk"></a><% } %>
-                <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank" class="sbut tg"></a><% } %>
-                <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank" class="sbut yt"></a><% } %>
-                <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank" class="sbut in"></a><% } %>
+                <% if (page.social) { %>
+                    <div class="social">
+                        <% if (page.social.twitter) { %><a href="<%- page.social.twitter %>" target="_blank" class="sbut tw"></a><% } %>
+                        <% if (page.social.facebook) { %><a href="<%- page.social.facebook %>" target="_blank" class="sbut fb"></a><% } %>
+                        <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank" class="sbut vk"></a><% } %>
+                        <% if (page.social.telegram) { %><a href="<%- page.social.telegram %>" target="_blank" class="sbut tg"></a><% } %>
+                        <% if (page.social.youtube) { %><a href="<%- page.social.youtube %>" target="_blank" class="sbut yt"></a><% } %>
+                        <% if (page.social.instagram) { %><a href="<%- page.social.instagram %>" target="_blank" class="sbut in"></a><% } %>
+                    </div>
+                <% } %>
+
             </div>
-            <% } %>
-
         </div>
-    </div>
 
     <% } %>
 
