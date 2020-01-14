@@ -4,7 +4,7 @@
             <a href="/" rel="nofollow"><img src="/themes/<%- page.theme %>/public/images/logo.svg?v=<%- page.ver %>" alt="Logo" style="height:60px;margin-top:14px"></a>
         </div>
         <div class="randomMovieMenu">
-            <a href="/?random" class="dice cinemapress-random-menu" title="<%= page.l.lucky %>">
+            <a href="/?random=<%- Math.random() %>" class="dice cinemapress-random-menu" title="<%= page.l.lucky %>">
                 <span><%- page.l.lucky %></span>
             </a>
         </div>
