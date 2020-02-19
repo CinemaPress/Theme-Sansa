@@ -68,10 +68,11 @@ index[type].forEach(function (category) { %>
 
         <div style="margin: 0 0 30px 0;color: #fff;font-size: 20px;font-weight: bold;"><%- category.name %></div>
 
+        <% var moreEpisodes = false; %>
         <% if (category.movies.length) {
         category.movies.forEach(function (movie) { %>
 
-            ﻿<div class="item">
+            ﻿<div class="item" <% if (movie.hide) { moreEpisodes = true; %>style="display:none" data-more-episodes="hide"<% } %>>
                 <div class="poster">
                     <div class="sc_info"><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% if (movie.translate) { %><br><%- movie.translate %><% } %><% } %></div>
                     <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
@@ -80,6 +81,10 @@ index[type].forEach(function (category) { %>
             </div>
 
         <% }); } %>
+
+        <% if (moreEpisodes) { %>
+            <div class="moreEpisodes" onclick="var dme = document.querySelectorAll('[data-more-episodes]'); dme && dme.forEach(function(e) {e.style.display='block'});this.style.display='none'"><%- page.l.moreEpisodes %></div>
+        <% } %>
 
     </div>
 
