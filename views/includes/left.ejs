@@ -82,11 +82,12 @@ index[type].forEach(function (category) { %>
 
         <% }); } %>
 
-        <% if (moreEpisodes) { %>
-            <div class="moreEpisodes" onclick="var dme = document.querySelectorAll('[data-more-episodes]'); dme && dme.forEach(function(e) {e.style.display='block'});this.style.display='none'"><%- page.l.moreEpisodes %></div>
-        <% } %>
-
     </div>
+
+    <% if (moreEpisodes) { %>
+        <div style="clear:both"></div>
+        <div class="moreEpisodes" onclick="var dme = document.querySelectorAll('[data-more-episodes]'); dme && dme.forEach(function(e) {e.style.display='block'});this.style.display='none'"><%- page.l.moreEpisodes %></div>
+    <% } %>
 
 <% }); } } } %>
 
