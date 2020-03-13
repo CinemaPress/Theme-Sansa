@@ -38,8 +38,10 @@
                     <h2>
                         <%- category.name %>
                         <div class="randomMovieIndex">
-                            <div <% if (!category.url) { %>style="display:none"<% } %> class="cinemapress-random-index"
-                                 onclick="window.location.href='<%- (category.url && category.url.indexOf('?')+1 ? category.url + '&random=' : category.url + '?random=') %><%- Math.random() %>'"
+                            <div <% if (!category.url) { %>style="display:none"
+                                    <% } %>
+                                 class="cinemapress-random-index"
+                                 onclick="window.location.href='<%- (category.url && category.url.indexOf('?') + 1 ? category.url + '&random=' : category.url + '?random=') %><%- Math.random() %>'"
                                  title="<%= page.l.random %>">
                                 <img src="/themes/<%- page.theme %>/public/images/dice.svg" alt="<%= page.l.random %>">
                             </div>
@@ -56,7 +58,11 @@
                             <div class="fname">
                                 <a href="<%- movie.url %>">
                                     <%= movie.title %>
-                                    <span><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% } else { %><%- movie.year %><% } %></span>
+                                    <span>
+                                        <% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %>
+                                        <% } else { %><%- movie.year %>
+                                        <% } %>
+                                    </span>
                                 </a>
                                 <% if (movie.rating) { %>
                                     <div class="rating show_rating_panel">
@@ -73,10 +79,13 @@
                             <div class="poster_over_2">
                                 <a href="<%- movie.url %>" rel="nofollow" class="poster_over_2_play"></a>
                                 <% if (page.urls.movies.trailer) { %>
-                                    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow" class="poster_tr"></a>
+                                    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>" rel="nofollow"
+                                       class="poster_tr"></a>
                                 <% } %>
                             </div>
-                            <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
+                            <a href="<%- movie.url %>" rel="nofollow"><img src="<%- movie.poster %>"
+                                                                           alt="<%= movie.title %>"
+                                                                           title="<%= movie.title %>"></a>
                         </div>
 
                         <div class="description">
@@ -98,10 +107,16 @@
                                         <li><span><%- page.l.genres %>:</span> <%- movie.genres %></li>
                                     <% } %>
                                     <% if (movie.kp_vote) { %>
-                                        <li><span><%- page.l.rating %> <%- page.l.kp %>:</span> <%- movie.kp_rating / 10 %> (<%- movie.kp_vote %>)</li>
+                                        <li>
+                                            <span><%- page.l.rating %> <%- page.l.kp %>:</span> <%- movie.kp_rating / 10 %>
+                                            (<%- movie.kp_vote %>)
+                                        </li>
                                     <% } %>
                                     <% if (movie.imdb_vote) { %>
-                                        <li><span><%- page.l.rating %> <%- page.l.imdb %>:</span> <%- movie.imdb_rating / 10 %> (<%- movie.imdb_vote %>)</li>
+                                        <li>
+                                            <span><%- page.l.rating %> <%- page.l.imdb %>:</span> <%- movie.imdb_rating / 10 %>
+                                            (<%- movie.imdb_vote %>)
+                                        </li>
                                     <% } %>
                                     <% if (movie.premiere) { %>
                                         <li><span><%- page.l.premiere %>:</span> <%- movie.premiere %></li>
@@ -116,7 +131,8 @@
                                     <% } %>
                                 </ul>
                                 <div class="read-more">
-                                    <a href="<%- movie.url %>" rel="nofollow" class="read"><span><%- page.l.more %> ...</span></a>
+                                    <a href="<%- movie.url %>" rel="nofollow"
+                                       class="read"><span><%- page.l.more %> ...</span></a>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +144,8 @@
                 <div class="navigation">
                 <span class="list-pages">
                     <% if (page.pagination.first) { %>
-                        <a href="<%- page.pagination.first.link %>" rel="nofollow"><%- page.pagination.first.number %></a>
+                        <a href="<%- page.pagination.first.link %>"
+                           rel="nofollow"><%- page.pagination.first.number %></a>
                         <span class="nav_ext">...</span>
                     <% } %>
                     <% if (page.pagination.prev.length) { %>

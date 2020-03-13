@@ -20,11 +20,13 @@
     <div class="others">
 
         <div class="year">
-            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>" class="section section_2"><%- page.l.movies %></a>
-            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up" class="section"><%- page.l.premieres %></a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>"
+               class="section section_2"><%- page.l.movies %></a>
+            <a href="/<%- page.urls.type %>/<%- page.urls.types.movie %>?sorting=premiere-up"
+               class="section"><%- page.l.premieres %></a>
             <ul>
                 <li><a href="/<%- page.urls.year %>"><%- page.l.allYears %></a></li>
-                <% page.urls.years.slice(0,10).forEach(function(year) { %>
+                <% page.urls.years.slice(0, 10).forEach(function(year) { %>
                     <li>
                         <a href="<%- year.url %>">
                             <%- year.title %>
@@ -37,7 +39,7 @@
         <div class="country">
             <ul>
                 <li><a href="/<%- page.urls.country %>"><%- page.l.allCountries %></a></li>
-                <% page.urls.countries.slice(0,10).forEach(function(country) { %>
+                <% page.urls.countries.slice(0, 10).forEach(function(country) { %>
                     <li>
                         <a href="<%- country.url %>">
                             <%- country.title %>
@@ -50,8 +52,12 @@
         <div class="series">
             <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>" class="section"><%- page.l.series %></a>
             <ul>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up"><%- page.l.popular %></a></li>
-                <li><a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up"><%- page.l.rating %></a></li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-vote-up"><%- page.l.popular %></a>
+                </li>
+                <li>
+                    <a href="/<%- page.urls.type %>/<%- page.urls.types.serial %>?sorting=imdb-rating-up"><%- page.l.rating %></a>
+                </li>
             </ul>
         </div>
 
@@ -72,10 +78,18 @@ index[type].forEach(function (category) { %>
         <% if (category.movies.length) {
         category.movies.forEach(function (movie) { %>
 
-            ﻿<div class="item" <% if (movie.hide) { moreEpisodes = true; %>style="display:none" data-more-episodes="hide"<% } %>>
+            ﻿
+            <div class="item" <% if (movie.hide) { moreEpisodes = true; %>style="display:none" data-more-episodes="hide"
+                    <% } %>
+            >
                 <div class="poster">
-                    <div class="sc_info"><% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% if (movie.translate) { %><br><%- movie.translate %><% } %><% } %></div>
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
+                    <div class="sc_info">
+                        <% if (movie.season && movie.episode) { %><%- movie.season %> <%- page.l.season %> <%- movie.episode %> <%- page.l.episode %><% if (movie.translate) { %>
+                            <br><%- movie.translate %><% } %>
+                        <% } %>
+                    </div>
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>"
+                                                    title="<%= movie.title %>"></a>
                 </div>
                 <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
             </div>
@@ -86,7 +100,8 @@ index[type].forEach(function (category) { %>
 
     <% if (moreEpisodes) { %>
         <div style="clear:both"></div>
-        <div class="moreEpisodes" onclick="var dme = document.querySelectorAll('[data-more-episodes]'); dme && dme.forEach(function(e) {e.style.display='block'});this.style.display='none'"><%- page.l.moreEpisodes %></div>
+        <div class="moreEpisodes"
+             onclick="var dme = document.querySelectorAll('[data-more-episodes]'); dme && dme.forEach(function(e) {e.style.display='block'});this.style.display='none'"><%- page.l.moreEpisodes %></div>
     <% } %>
 
 <% }); } } } %>
@@ -99,10 +114,12 @@ index[type].forEach(function (category) { %>
 
         <% soon.forEach(function (movie) { %>
 
-            ﻿<div class="item">
+            ﻿
+            <div class="item">
                 <div class="poster">
                     <div class="sc_info"><%- page.l.premiere %><br> <%- movie.premiere %></div>
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>" title="<%= movie.title %>"></a>
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>"
+                                                    title="<%= movie.title %>"></a>
                 </div>
                 <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
             </div>
@@ -117,7 +134,8 @@ index[type].forEach(function (category) { %>
     <% news.forEach(function (content) { %>
         <div style="float: left; width: 100%;">
             <div style="margin: 0; padding: 10px 0 10px 10px">
-                <a href="<%- content.url %>" class="cinemapress-news" style="background-image:url('<%- content.image %>');">
+                <a href="<%- content.url %>" class="cinemapress-news"
+                   style="background-image:url('<%- content.image %>');">
                     <div class="cinemapress-news-title">
                         <%= content.title %>
                     </div>
@@ -151,11 +169,14 @@ index[type].forEach(function (category) { %>
                         <div class="cinemapress-comment-user" data-comment-id="<%- comment.id %>">
                             <div class="cinemapress-comment-user-name">
                                 <%- comment.user %>
-                            </div><div class="cinemapress-comment-user-said">
+                            </div>
+                            <div class="cinemapress-comment-user-said">
                                 <%- page.l.said %>
-                            </div><div class="cinemapress-comment-user-date">
+                            </div>
+                            <div class="cinemapress-comment-user-date">
                                 <%- comment.date %>
-                            </div><div class="cinemapress-comment-user-link">
+                            </div>
+                            <div class="cinemapress-comment-user-link">
                                 <a href="<%- comment.url %>#c<%- comment.id %>" title="<%= comment.title %>">#</a>
                             </div>
                         </div>
