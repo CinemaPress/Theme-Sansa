@@ -88,7 +88,7 @@ index[type].forEach(function (category) { %>
                             <br><%- movie.translate %><% } %>
                         <% } %>
                     </div>
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>"
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %>"
                                                     title="<%= movie.title %>"></a>
                 </div>
                 <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
@@ -118,7 +118,7 @@ index[type].forEach(function (category) { %>
             <div class="item">
                 <div class="poster">
                     <div class="sc_info"><%- page.l.premiere %><br> <%- movie.premiere %></div>
-                    <a href="<%- movie.url %>"><img src="<%- movie.poster %>" alt="<%= movie.title %>"
+                    <a href="<%- movie.url %>"><img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %>"
                                                     title="<%= movie.title %>"></a>
                 </div>
                 <div class="link"><a href="<%- movie.url %>"><%= movie.title %></a></div>
