@@ -149,11 +149,11 @@
 
                         <ul class="gal_line">
                             <li><a href="<%- movie.url %>"><%- page.l.information %></a></li>
-                            <li class="active"><%- page.l.trailer %></li>
                             <% if (page.urls.movies.online) { %>
                                 <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>"><%- page.l.online %></a>
                                 </li>
                             <% } %>
+                            <li class="active"><%- page.l.trailer %></li>
                         </ul>
 
                         <div id="cinemapress-player" style="width: 683px;">

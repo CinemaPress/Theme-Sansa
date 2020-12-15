@@ -153,12 +153,12 @@
 
                         <ul class="gal_line">
                             <li class="active"><%- page.l.information %></li>
-                            <% if (page.urls.movies.trailer) { %>
-                                <li><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a>
-                                </li>
-                            <% } %>
                             <% if (page.urls.movies.online) { %>
                                 <li><a href="<%- movie.url %>/<%- page.urls.movies.online %>"><%- page.l.online %></a>
+                                </li>
+                            <% } %>
+                            <% if (page.urls.movies.trailer) { %>
+                                <li><a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a>
                                 </li>
                             <% } %>
                             <li class="complaint not-tab watchLaterBlock" style="display: none;"><a
