@@ -58,7 +58,7 @@
 
                 <div class="poster_m">
                     <div class="poster_main">
-                        <div class="poster_main_2"><img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= page.title %>"
+                        <div class="poster_main_2"><img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= page.title %>"
                                                         title="<%= page.title %>"
                                                         data-cinemapress-poster="<%- movie.poster %>"></div>
                     </div>
@@ -238,7 +238,7 @@
                     <% if (typeof category === 'object' && category.movies && category.movies.length) {
                     category.movies.forEach(function (movie) { %>
                         <div class="item">
-                            <a href="<%- movie.url %>"><img src="<%- movie.poster_min %>" data-cinemapress-src="<%- movie.poster %>" alt="<%= movie.title %>"
+                            <a href="<%- movie.url %>"><img src="<%- movie.poster_min %>" class="lazy" data-src="<%- movie.poster %>" alt="<%= movie.title %>"
                                                             title="<%= movie.title %>"/></a>
                             <div class="link"><a href="<%- movie.url %>"><%= movie.title %> <%- movie.year %></a></div>
                         </div>
