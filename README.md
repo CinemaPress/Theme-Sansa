@@ -1,10 +1,10 @@
 # Theme «sansa»
 
-![Theme «sansa» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png "Theme «sansa» for CinemaPress")
+![Theme «sansa» for CinemaPress](https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png)
 
 :art: Theme «sansa» for CinemaPress
 
-- [Sansa.CinemaPress.io](http://Sansa.CinemaPress.io/)
+- `«sansa»`
 
 ## How to install?
 1. Download [GitHub](https://github.com/CinemaPress/Theme-Sansa/archive/master.zip) or [GitLab](https://gitlab.com/CinemaPress/Theme-Sansa/repository/archive.zip) or [BitBucket](https://bitbucket.org/cinemapress/theme-sansa/get/master.zip)
